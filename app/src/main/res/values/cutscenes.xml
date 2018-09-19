@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        This XML organizes the text of the cutscene
+        TEXT # POSX # POSY # DURATION # FONT SIZE
+        1 text to display (string)
+        2 position y (int)
+        3 position x (int)
+        4 duration to display on screen 100 (1 second)
+        5 text size (size min~max depends on yours font example: min 9 - max 32)
+    -->
+    <string-array name="cutscene_intro">
+        <item>A game by Andrew Peng#2#2#200#15</item>
+        <item>contribution by Maico Ribeiro#2#2#200#15</item>
+    </string-array>
+</resources>
