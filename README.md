@@ -1,9 +1,9 @@
 # RNGQuest
 
 An endless Android game about fighting enemies, and letting randomness decide how things should go.
-#Um jogo de RPG de batalhas em turno, baseado em texto para decisões.
 Still in early development.
-#Ainda em desenvolvimento.
+Um jogo de RPG de batalhas em turno, baseado em texto para decisões.
+Ainda em desenvolvimento.
 
 # Plans / Planos
 
