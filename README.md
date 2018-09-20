@@ -1,12 +1,13 @@
 # RNGQuest
 
-An endless Android game about fighting enemies, and letting randomness decide how things should go.
-
+* An endless Android game about fighting enemies, and letting randomness decide how things should go.
 Still in early development.
+* Um jogo de RPG de batalhas em turno, baseado em texto para decisões.
+Ainda em desenvolvimento.
 
-# Plans
+# Plans / Planos
 
-Features so far:
+Features so far: / Recursos já adicionados
 * Game loop and rendering system
 * Main menu, info, and character selection screens
 * Buttons!
@@ -16,8 +17,9 @@ Features so far:
 * Combat system
 * A small amount of enemies
 * Inventory + Items + Shop system
+*Cutscene intro + story / Cenas iniciais + história
 
-Still need to add:
+Still need to add: /Ainda para adicionar:
 * World system, 8 worlds, boss at end of each
 * Different spells for different classes
 * More consumable items
@@ -25,10 +27,13 @@ Still need to add:
 * Different backgrounds + animated backgrounds in combat
 * Balancing
 * More sound effects
-* Story
 * Cutscenes with characters
 
-# Screenshots
+Added by MikeSuper:
+* Story number 19(from the: http://blog.dragaodourado.com.br/docs/50a_70.PDF) / História 19
+* Intro / Introdução
+
+# Screenshots / Telas
 
 ![Title Screen](http://i.imgur.com/edqxTht.jpg) 
 ![Wizard](http://i.imgur.com/rfex2kN.jpg)
