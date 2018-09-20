@@ -1,7 +1,9 @@
 package com.redside.rngquest.managers;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 
+import com.redside.rngquest.R;
 import com.redside.rngquest.models.TextList;
 import com.redside.rngquest.utils.Clock;
 
@@ -24,6 +26,7 @@ public class CutsceneManager {
     CutsceneManager(){
         width = HUDManager.width;
         height = HUDManager.height;
+        String[] introTexts = CoreManager.context.getResources().getStringArray(R.array.cutscene_intro);//get array from xml
         textList = new ArrayList<>(); //fills the list with the content kept in xml
     }
 
@@ -36,7 +39,19 @@ public class CutsceneManager {
      * updated their respective positions and states
      */
     public void ticks(){
-
+        ticks++;
+        if(numberText < textList.size()){
+            if(show) {
+                HUDManager.displayFadeMessage(textList.get(numberText).getTextToDisplay(),  //text
+                        width / textList.get(numberText).getxPosition(),                //position x
+                        height / textList.get(numberText).getyPosition(),               //position y
+                        (textList.get(numberText).getDuration() - 60),                      //duration (-60 to compensate for fading)
+                        textList.get(numberText).getTextSize(), Color.WHITE);               //color
+                show = false;
+            }
+        }else{
+            SEManager.playEffect(SEManager.Effect.FADE_TRANSITION, ScreenState.TITLE);
+        }
     }
 
     public void reder(Canvas canvas){
