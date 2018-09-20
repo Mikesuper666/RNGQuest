@@ -89,6 +89,9 @@ public class Background {
             case INVENTORY:
                 background.add(Assets.getBitmapFromMemory("background_inventory"));
                 break;
+            case CUTSCENE:
+                background.add(Assets.getBitmapFromMemoryFullscreen("background_black"));
+                break;
             default:
                 background.add(Assets.getBitmapFromMemory("background_mountains"));
         }
@@ -111,11 +114,46 @@ public class Background {
             case TITLE:
             case INFO:
             case LOAD:
+            case CUTSCENE:
+
+                break;
             case CHAR_SELECT:
                 // Clouds
                 canvas.drawBitmap(clouds, CoreManager.width - (int) xOff, CoreManager.height / 10, paint);
                 break;
 
         }
+    }
+
+    /**
+     * To animate loop images with different speed (parallax effect can be aplied).
+     * @param canvas The {@link Canvas} to draw on
+     * @param image The {@link Bitmap} object to draw with and animate
+     * @param offset position X from the image
+     * @param speed speed moving image
+     * @param infite determines if infinite scroll
+     */
+    public double offsetScrolling(Canvas canvas, Bitmap image, double offset, int speed, boolean infite){
+        offset -= HUDManager.getSpeed(CoreManager.width, speed);
+        if (offset <- CoreManager.width){
+            offset = 0;
+        }
+        canvas.drawBitmap(image,(int)offset, 0, null);
+        if(offset < 0 && infite){
+            canvas.drawBitmap(image,(int)offset + CoreManager.width, 0, null);
+        }
+        return offset;
+    }
+
+    public double offsetScrollingInverted(Canvas canvas, Bitmap image, double offset, int speed, boolean infite){
+        offset += HUDManager.getSpeed(CoreManager.width, speed);
+        if (offset > CoreManager.width){
+            offset = 0;
+        }
+        canvas.drawBitmap(image,(int)offset, 0, null);
+        if(offset > 0 && infite){
+            canvas.drawBitmap(image,(int)offset - CoreManager.width, 0, null);
+        }
+        return offset;
     }
 }

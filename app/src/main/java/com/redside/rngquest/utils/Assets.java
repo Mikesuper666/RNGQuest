@@ -38,7 +38,7 @@ public class Assets {
     private void init(){
 
         //intro cutscene (objects thats will be parallax effect)
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i <= 5; i++) {
             bitmapDb.put("background_intro_" + i, getBitmap(context, "backgrounds/intro/introcutscene/intro_" + i + ".png"));
         }
 

@@ -484,6 +484,7 @@ public class HUDManager {
                 break;
             case CUTSCENE:
                 cutsceneManager.ticks();
+                cutsceneManager.render(canvas);
                 break;
         }
         // Render all buttons + faded text
