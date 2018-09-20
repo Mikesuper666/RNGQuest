@@ -2,7 +2,7 @@
 
 An endless Android game about fighting enemies, and letting randomness decide how things should go.
 Still in early development.
-Um jogo de RPG de batalhas em turno, baseado em texto para decisões.
+* Um jogo de RPG de batalhas em turno, baseado em texto para decisões.
 Ainda em desenvolvimento.
 
 # Plans / Planos
