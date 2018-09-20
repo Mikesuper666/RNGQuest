@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--
-        This XML organizes the text of the cutscene
-        TEXT # POSX # POSY # DURATION # FONT SIZE
-        1 text to display (string)
-        2 position y (int)
-        3 position x (int)
-        4 duration to display on screen 100 (1 second)
-        5 text size (size min~max depends on yours font example: min 9 - max 32)
+<!--
+    This XML organizes the text of the cutscene
+    TEXT # POSX # POSY # DURATION # FONT SIZE
+    1 text to display (string)
+    2 position X (int)
+    3 position Y (int)
+    4 duration to display on screen 100 (1 second)
+    5 text size (size min~max depends on yours font example: min 9 - max 32)
     -->
     <string-array name="cutscene_intro">
-        <item>A game by Andrew Peng \n contribution by Maico Ribeiro#2#2#300#15</item>
-        <item>A long time ago#2#2#200#15</item>>
-        <item>The king of a forgotten kingdom sent their wizards \n to build a huge labyrinth#2#2#200#15</item>
-        <item>with the goal of create a challenge for  \n their children#2#2#200#15</item>
-        <item>thus choosing a king from among they.#2#2#200#15</item>
-        <item>The labyrinth was designed to judge the physical \n and of the candidate to the king. \n The prize: the kingdom.#2#2#200#15</item>
-        <item>For the losers to death..#2#2#200#15</item>
-        <item>Many of his children perished in the labyrinth and \n as punishment  the gods held the whole \n kingdom capital within a bottle#2#2#200#15</item>
-        <item>and put it inside the labyrinth. \n Now the characters must#2#2#200#15</item>
-        <item>find an object that is inside the city#2#2#200#15</item>
+        <item>A game by Andrew Peng \n contribution by Maico Ribeiro#2#550#300#15</item>
+        <item>A long time ago#2#550#200#15</item>>
+        <item>The king of a forgotten kingdom sent their wizards \n to build a huge labyrinth#2#250#200#15</item>
+        <item>with the goal of create a challenge for  \n their children#2#250#200#15</item>
+        <item>thus choosing a king from among they.#2#250#200#15</item>
+        <item>The labyrinth was designed to judge the physical \n and of the candidate to the king. \n The prize: the kingdom.#2#250#200#15</item>
+        <item>For the losers to death..#2#250#200#15</item>
+        <item>Many of his children perished in the labyrinth and \n as punishment  the gods held the whole \n kingdom capital within a bottle#2#250#200#15</item>
+        <item>and put it inside the labyrinth. \n Now the characters must#2#250#200#15</item>
+        <item>find an object that is inside the city#2#250#200#15</item>
     </string-array>
 </resources>

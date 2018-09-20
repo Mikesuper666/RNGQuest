@@ -59,7 +59,7 @@ public class CutsceneManager {
             if (showText) {
                 HUDManager.displayFadeMessage(textList.get(numberText).getTextToDisplay(),  //text
                         width / textList.get(numberText).getxPosition(),                //position x
-                        height / textList.get(numberText).getyPosition(),               //position y
+                        height - textList.get(numberText).getyPosition(),               //position y
                         (textList.get(numberText).getDuration() - 60),                      //duration (-60 to compensate for fading)
                         textList.get(numberText).getTextSize(), Color.WHITE);               //color
                 showText = false;
@@ -90,7 +90,6 @@ public class CutsceneManager {
                 xOffBG[1] = background.offsetScrolling(canvas, bgs[1], xOffBG[1], 500, true);//florest front
             }else{
                 canvas.drawBitmap(Objects.requireNonNull(Assets.getBitmapFromMemoryFullscreen("background_black")), 0, 0, null);
-
             }
         }
     }
