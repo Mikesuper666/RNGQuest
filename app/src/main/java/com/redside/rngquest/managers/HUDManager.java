@@ -41,6 +41,7 @@ public class HUDManager {
     private static Bitmap play, back, info, start;
     private static ButtonManager buttonManager;
     private static AnimatedTextManager animatedTextManager;
+    private static CutsceneManager cutsceneManager;
     private static EntityManager entityManager;
     public static int selection = 0;
     public static int infoState = 0;
@@ -55,6 +56,7 @@ public class HUDManager {
         buttonManager = new ButtonManager();
         animatedTextManager = new AnimatedTextManager();
         entityManager = new EntityManager();
+        cutsceneManager = new CutsceneManager();
         // Load all button bitmaps needed
         play = Assets.getBitmapFromMemory("button_play");
         back = Assets.getBitmapFromMemory("button_back");
@@ -211,6 +213,9 @@ public class HUDManager {
                 displayTypingText("Welcome to the shop!", width / 2, (int) (height * 0.83), 2, 13, Color.WHITE, true);
                 displayTypingText("Game saved.", width / 2, (int) (height * 0.9), 2, 13, Color.GREEN, true);
 
+                break;
+            case CUTSCENE:
+                cutsceneManager.init();
                 break;
         }
     }
@@ -477,8 +482,9 @@ public class HUDManager {
 
                 }
                 break;
-
-
+            case CUTSCENE:
+                cutsceneManager.ticks();
+                break;
         }
         // Render all buttons + faded text
         buttonManager.render(canvas, paint);
