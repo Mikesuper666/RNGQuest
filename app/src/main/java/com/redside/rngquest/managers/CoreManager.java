@@ -43,7 +43,7 @@ public class CoreManager{
     public void init(){
         // Initialize HUD manager, background manager, and SE manager
         // Load sound effects
-        state = ScreenState.TITLE;
+        state = ScreenState.CUTSCENE;
         hud = new HUDManager();
         background = new Background();
         se = new SEManager();

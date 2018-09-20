@@ -27,7 +27,7 @@ public class CutsceneManager {
         width = HUDManager.width;
         height = HUDManager.height;
         String[] introTexts = CoreManager.context.getResources().getStringArray(R.array.cutscene_intro);//get array from xml
-        textList = new ArrayList<>(); //fills the list with the content kept in xml
+        textList = new ArrayList<>(TextListManager.ManageText(introTexts)); //fills the list with the content kept in xml
     }
 
     public void init(){
@@ -38,10 +38,10 @@ public class CutsceneManager {
      *ticks manipulates the logic of texts and movements displayed on the screen,
      * updated their respective positions and states
      */
-    public void ticks(){
+    public void ticks() {
         ticks++;
-        if(numberText < textList.size()){
-            if(show) {
+        if (numberText < textList.size()) {
+            if (show) {
                 HUDManager.displayFadeMessage(textList.get(numberText).getTextToDisplay(),  //text
                         width / textList.get(numberText).getxPosition(),                //position x
                         height / textList.get(numberText).getyPosition(),               //position y
@@ -49,7 +49,13 @@ public class CutsceneManager {
                         textList.get(numberText).getTextSize(), Color.WHITE);               //color
                 show = false;
             }
-        }else{
+
+            if (ticks == textList.get(numberText).getDuration()) {
+                show = true;
+                ticks = 0;
+                numberText++;
+            }
+        }else {
             SEManager.playEffect(SEManager.Effect.FADE_TRANSITION, ScreenState.TITLE);
         }
     }

@@ -10,7 +10,7 @@
         5 text size (size min~max depends on yours font example: min 9 - max 32)
     -->
     <string-array name="cutscene_intro">
-        <item>A game by Andrew Peng#2#2#200#15</item>
-        <item>contribution by Maico Ribeiro#2#2#200#15</item>
+        <item>A game by Andrew Peng#2#2#100#15</item>
+        <item>contribution by Maico Ribeiro#2#2#100#15</item>
     </string-array>
 </resources>
