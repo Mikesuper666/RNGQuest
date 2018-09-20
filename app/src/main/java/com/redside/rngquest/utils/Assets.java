@@ -18,32 +18,29 @@ import java.util.HashMap;
 public class Assets {
     private static HashMap<String, Bitmap> bitmapDb;
     private static HashMap<String, AssetFileDescriptor> soundDb;
-    private static HashMap<String, String> messages;
+    //private static HashMap<String, String> messages; //Not used yet
     private Context context;
     private static int width;
     private static int height;
     public Assets(Context context, int width, int height){
-        this.width = width;
-        this.height = height;
+        Assets.width = width;
+        Assets.height = height;
         this.context = context;
         bitmapDb = new HashMap<>();
         soundDb = new HashMap<>();
-        messages = new HashMap<>();
+        //messages = new HashMap<>();
         init();
     }
 
     /**
      * Initializes all {@link Bitmap} image assets, and sound assets.
      */
-    public void init(){
+    private void init(){
 
         //intro cutscene (objects thats will be parallax effect)
-        bitmapDb.put("background_intro_0", getBitmap(context, "backgrounds/intro/introcutscene/intro_0.png"));
-        bitmapDb.put("background_intro_1", getBitmap(context, "backgrounds/intro/introcutscene/intro_1.png"));
-        bitmapDb.put("background_intro_2", getBitmap(context, "backgrounds/intro/introcutscene/intro_2.png"));
-        bitmapDb.put("background_intro_3", getBitmap(context, "backgrounds/intro/introcutscene/intro_3.png"));
-        bitmapDb.put("background_intro_4", getBitmap(context, "backgrounds/intro/introcutscene/intro_4.png"));
-        bitmapDb.put("background_intro_5", getBitmap(context, "backgrounds/intro/introcutscene/intro_5.png"));
+        for (int i = 0; i < 5; i++) {
+            bitmapDb.put("background_intro_" + i, getBitmap(context, "backgrounds/intro/introcutscene/intro_" + i + ".png"));
+        }
 
         // Backgrounds
         bitmapDb.put("background_black", getBitmap(context, "backgrounds/black.png"));
@@ -187,7 +184,7 @@ public class Assets {
      * @param filePath The file path
      * @return A {@link Bitmap}
      */
-    public static Bitmap getBitmap(Context context, String filePath) {
+    private static Bitmap getBitmap(Context context, String filePath) {
         AssetManager assetManager = context.getAssets();
         // Create a new input stream, and open the path
         InputStream istr;
@@ -196,9 +193,10 @@ public class Assets {
             istr = assetManager.open(filePath);
             // Assuming it is a bitmap, decode the stream
             bitmap = BitmapFactory.decodeStream(istr);
-        } catch (IOException e) {}
+        } catch (IOException ignored) {}
 
         // Scale bitmap to screen height and width
+        assert bitmap != null;
         double x = bitmap.getWidth() * width / 1920;
         double y = bitmap.getHeight() * height / 1080;
 
@@ -211,10 +209,9 @@ public class Assets {
      * @param filePath The file path
      * @return A {@link AssetFileDescriptor}
      */
-    public static AssetFileDescriptor getSoundDesc(Context context, String filePath){
+    private static AssetFileDescriptor getSoundDesc(Context context, String filePath){
         try{
-            AssetFileDescriptor afd = context.getAssets().openFd(filePath);
-            return afd;
+            return context.getAssets().openFd(filePath);
         }catch(IOException e){
             return null;
         }
@@ -235,11 +232,23 @@ public class Assets {
     /**
      * Returns a {@link Bitmap} from memory.
      * @param name The name of the {@link Bitmap}
-     * @return A {@link Bitmap}
+     * @return A {@link Bitmap} (returns a normal image, much like the screen perspective)
      */
     public static Bitmap getBitmapFromMemory(String name){
         if (bitmapDb.containsKey(name)){
             return bitmapDb.get(name);
+        }
+        return null;
+    }
+
+    /**
+     * Returns a {@link Bitmap} from memory.
+     * @param name The name of the {@link Bitmap}
+     * @return A {@link Bitmap} rescaled for a fullscren backgrounds
+     */
+    public static Bitmap getBitmapFromMemoryFullscreen(String name){
+        if (bitmapDb.containsKey(name)){
+            return Bitmap.createScaledBitmap(bitmapDb.get(name), width, height, true);
         }
         return null;
     }
